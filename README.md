@@ -1,2 +1,2 @@
-# Genome_size_-_Ploidy
+# GS_and_Ploidy
 R scripts for genome size and ploidy level manuscript
