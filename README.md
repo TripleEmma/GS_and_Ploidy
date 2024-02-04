@@ -15,4 +15,4 @@ The sixth set of scripts deal with power analysis;
 
 The seventh set of scripts deal with analysis in the discusssion session;
 
-The eight set of scripts deal with figures.
+The eight set of scripts deal with figures and tables.
