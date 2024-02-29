@@ -26,21 +26,24 @@
 #     [1] stats     graphics  grDevices utils     datasets  methods   base     
 # 
 # other attached packages:
-# [1] lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1   dplyr_1.1.4     purrr_1.0.2    
-# [6] readr_2.1.4     tidyr_1.3.0     tibble_3.2.1    ggplot2_3.4.4   tidyverse_2.0.0
-# [11] Taxonstand_2.4  pbapply_1.7-2  
+# [1] ggpubr_0.6.0    Taxonstand_2.4  pbapply_1.7-2   lubridate_1.9.3 forcats_1.0.0   stringr_1.5.1  
+# [7] dplyr_1.1.4     purrr_1.0.2     readr_2.1.5     tidyr_1.3.1     tibble_3.2.1    ggplot2_3.4.4  
+# [13] tidyverse_2.0.0
 # 
 # loaded via a namespace (and not attached):
-# [1] rstudioapi_0.15.0 magrittr_2.0.3    hms_1.1.3         tidyselect_1.2.0 
-# [5] munsell_0.5.0     timechange_0.2.0  colorspace_2.1-0  R6_2.5.1         
-# [9] rlang_1.1.2       fansi_1.0.6       tools_4.2.0       parallel_4.2.0   
-# [13] grid_4.2.0        gtable_0.3.4      utf8_1.2.4        cli_3.6.2        
-# [17] withr_2.5.2       lifecycle_1.0.4   tzdb_0.4.0        vctrs_0.6.5      
-# [21] glue_1.6.2        stringi_1.8.3     compiler_4.2.0    pillar_1.9.0     
-# [25] generics_0.1.3    scales_1.3.0      pkgconfig_2.0.3  
+# [1] pillar_1.9.0      compiler_4.2.0    tools_4.2.0       bit_4.0.5         lifecycle_1.0.4  
+# [6] gtable_0.3.4      timechange_0.3.0  pkgconfig_2.0.3   rlang_1.1.3       cli_3.6.2        
+# [11] rstudioapi_0.15.0 parallel_4.2.0    gridExtra_2.3     withr_3.0.0       generics_0.1.3   
+# [16] vctrs_0.6.5       hms_1.1.3         cowplot_1.1.3     bit64_4.0.5       grid_4.2.0       
+# [21] tidyselect_1.2.0  glue_1.7.0        R6_2.5.1          rstatix_0.7.2     fansi_1.0.6      
+# [26] vroom_1.6.5       carData_3.0-5     farver_2.1.1      car_3.1-2         tzdb_0.4.0       
+# [31] magrittr_2.0.3    backports_1.4.1   scales_1.3.0      abind_1.4-5       colorspace_2.1-0 
+# [36] ggsignif_0.6.4    labeling_0.4.3    utf8_1.2.4        stringi_1.8.3     munsell_0.5.0    
+# [41] broom_1.0.5       crayon_1.5.2   
 
 
 library(tidyverse)
+library(ggpubr)
 
 rm(list = ls())
 df <- read_delim("results/02_traits/BE_species_traits_both.txt") %>% 
