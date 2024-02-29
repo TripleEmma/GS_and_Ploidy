@@ -123,11 +123,13 @@ length(biolFlor_no_ploidy) # 83 species lacking ploidy level information until n
 # Fill up the trait information obtained from KEW. 
 # For species with multiple records for the trait, we used the mean of those records.
 # -------------- select Kew species with trait information that is not available in BiolFlor and see if there are species with multiple records
-kew_GS <- kew2 %>% filter(correctedName %in% biolFlor_no_GS & !(is.na(DNA_1C)))
+kew_GS <- kew2 %>% filter(correctedName %in% biolFlor_no_GS & !(is.na(DNA_1C))) %>% 
+    dplyr::select(correctedName, DNA_1C)
 kew_GS_dup <- unique(kew_GS$correctedName[duplicated(kew_GS$correctedName)])
 write_csv(tibble(BEname = kew_GS_dup), "results/02_traits/duplicated_GS_KEW.txt")
 
-kew_ploidy <- kew2 %>% filter(correctedName %in% biolFlor_no_ploidy & !(is.na(ploidy)))
+kew_ploidy <- kew2 %>% filter(correctedName %in% biolFlor_no_ploidy & !(is.na(ploidy))) %>% 
+    dplyr::select(correctedName, ploidy)
 kew_ploidy_dup <- unique(kew_ploidy$correctedName[duplicated(kew_ploidy$correctedName)])
 write_csv(tibble(BEname = kew_ploidy_dup), "results/02_traits/duplicated_PL_KEW.txt")
 
@@ -362,5 +364,3 @@ png("results/06_manuscript/resident_sp/Figure1b_resident_sp_Trait_histograms.png
     width = 26, height = 15, units = "cm", res = 600)
 ggarrange(g1, g2, nrow = 1)
 dev.off()
-
-
