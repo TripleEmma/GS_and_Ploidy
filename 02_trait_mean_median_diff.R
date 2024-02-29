@@ -55,7 +55,7 @@ GS_diff <- trait_mean %>%
     dplyr::select(BEname, meanGS, medianGS, diff) %>% 
     rename(mean = meanGS, median = medianGS) %>% 
     mutate(traits = "GS_diff")
-mean(GS_diff$diff==0) # percentage of GS difference equal to 0: 67%
+mean(GS_diff$diff==0) # percentage of GS difference equal to 0: 66%
 
 PL_diff <- trait_mean %>% 
     left_join(trait_median) %>% 
@@ -64,7 +64,7 @@ PL_diff <- trait_mean %>%
     dplyr::select(BEname, meanPloidy, medianPloidy, diff) %>% 
     rename(mean = meanPloidy, median = medianPloidy) %>% 
     mutate(traits = "PL_diff")
-mean(PL_diff$diff==0) # percentage of PL difference equal to 0: 92%
+mean(PL_diff$diff==0) # percentage of PL difference equal to 0: 89%
 
 trait_all <- rbind(GS_diff, PL_diff)
 
