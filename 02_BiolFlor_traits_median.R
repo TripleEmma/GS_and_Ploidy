@@ -207,9 +207,14 @@ ploidy_df$usedPloidy <- NA
 
 ## indicate if there are multiple records for one species
 ploidy_df$multiPloidy <- NA
-unique_sp <- ploidy_df %>% group_by(BEname) %>% 
-    mutate(n = n()) %>% filter(n == 1) %>% pull(BEname)
-length(unique_sp) # 189 after correcting BiolFlor name; it was 202 previously (meaning some records are renamed to some other names)
+unique_sp <- ploidy_df %>% 
+    dplyr::select(BEname, ploidyLevel) %>% 
+    distinct() %>% 
+    group_by(BEname) %>% 
+    mutate(n = n()) %>% 
+    filter(n == 1) %>% 
+    pull(BEname)
+length(unique_sp) # 204 after correcting BiolFlor name; it was 202 previously (meaning some records are renamed to some other names)
 
 for (i in seq(nrow(ploidy_df))){
     if (ploidy_df$BEname[i] %in% unique_sp){
@@ -222,11 +227,11 @@ for (i in seq(nrow(ploidy_df))){
 duplicate_ploidy_names <- ploidy_df %>% filter(multiPloidy == 'Y') %>% dplyr::select(BEname) %>% distinct()
 write_csv(duplicate_ploidy_names, "results/02_traits/duplicated_PL_BiolFlor.txt")
 
-unique_ploidy <- ploidy_df %>% filter(multiPloidy == "N") %>% pull(BEname)
+unique_ploidy <- ploidy_df %>% filter(multiPloidy == "N") %>% pull(BEname) %>% unique()
 # unique_ploidy duplicateds with unique_sp
 all.equal(unique_sp, unique_ploidy)
-length(unique(ploidy_df$BEname)) - length(unique_ploidy) # 64 species have multiple ploidy records? previously 50
-length(unique(ploidy_df$BEname[duplicated(ploidy_df$BEname)])) # 64 species have multiple ploidy records
+length(unique(ploidy_df$BEname)) - length(unique_ploidy) # 49 species have multiple ploidy records? previously 50
+nrow(duplicate_ploidy_names)
 
 # Some species have several ploidy records and we set up several rules to keep one record for each species.
 # (1). if only one record indicate it is found in Germany, use this record to represent this species;
@@ -245,7 +250,7 @@ multi_ploidy$dummyMostCommon <- ifelse(multi_ploidy$mostCommonChromosomeRace == 
 Germany_ploidy <- (multi_ploidy %>% group_by(BEname) %>%
                        summarise(Germany = sum(dummyGermany)) %>%
                        filter(Germany >= 1))$BEname
-length(Germany_ploidy) # 60; previously 47
+length(Germany_ploidy) # 46
 
 # case(3) and (4)
 most_common_ploidy <- (multi_ploidy %>% 
@@ -303,9 +308,11 @@ GS_df$usedGS <- NA
 length(unique(GS_df$BEname)) # 130 species have genome information in BiolFlor; previously 128
 
 GS_df$multiGS <- NA
-unique_sp <- GS_df %>% group_by(BEname) %>% 
-    mutate(n=n()) %>% filter(n == 1) %>% pull(BEname)
-length(unique_sp) # 81 species have unique GS 
+unique_sp <- (GS_df %>% dplyr::select(BEname, DNAcontent_pg_2C) %>% 
+                  distinct() %>% 
+                  group_by(BEname) %>% 
+                  mutate(n=n()) %>% filter(n == 1))$BEname
+length(unique_sp) # 82 species have unique GS 
 
 # b <- read.delim("biolflor.corrected", stringsAsFactors = FALSE) %>% pull(1)
 # setdiff(unique(GS_df$BEname), b)
@@ -336,13 +343,14 @@ table(GS_df$BENNET_LEITCH_2001)
 # (4). if several records are found and none of them indicate "occurring in Germany" nor "TRUE" in `BENNET_LEITCH_2001`, use the mean of all these records to represent the species; 
 
 multi_GS <- GS_df %>% filter(multiGS == "Y")
-length(unique(multi_GS$BEname)) # 49 species have multiple GS records # 47
+length(unique(multi_GS$BEname)) # 48
+nrow(duplicate_GS_names)
 
 # case(1) and (2)
 Germany_GS <- multi_GS %>% group_by(BEname) %>% 
     filter(grepl("chromosome number known and occurring in Germany", quality)) %>% 
     pull(BEname)
-length(unique(Germany_GS)) # 46 species; previously 44
+length(unique(Germany_GS)) # 45
 
 # case(3)
 BENNET_GS <- multi_GS %>% 
@@ -391,4 +399,3 @@ output <- paste0(output_dir, "BE_species_BiolFlor_only_median.txt")
 write.table(both_df,
             col.names = TRUE, row.names = FALSE, sep = "\t",
             file = output)
-
