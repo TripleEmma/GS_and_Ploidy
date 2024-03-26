@@ -10,7 +10,6 @@
 # Median is an alternative to average, we could have used the median to represent species with multiple trait records. 
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
