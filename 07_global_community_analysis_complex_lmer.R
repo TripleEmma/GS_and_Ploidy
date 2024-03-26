@@ -5,7 +5,6 @@
 # (discussion section; quadratic term included; region is taken as random intercept)
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
