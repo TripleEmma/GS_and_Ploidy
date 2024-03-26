@@ -4,7 +4,6 @@
 ## Purposes: tidy up the landscape metrics 
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
