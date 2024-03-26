@@ -4,7 +4,6 @@
 ## Purposes: put all selected stress indicators into one table
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
