@@ -4,7 +4,6 @@
 ## Purposes: perform species level analysis on overlapping species set (in the discussion section)
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
