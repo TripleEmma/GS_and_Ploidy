@@ -4,7 +4,6 @@
 ## Purposes: check if all species with trait could be found in the tree
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
