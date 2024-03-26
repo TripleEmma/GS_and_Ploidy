@@ -7,7 +7,6 @@
 # When the dependent variable is genome size, we control for phylogenetic relationships. 
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
