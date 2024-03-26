@@ -7,7 +7,6 @@
 # When the dependent variable is cover-weighted-ploidy, we control for phylogenetic relationships by using gls(). 
 
 ## Contacts ----
-# Chongyi Jiang (chongyi.jiang@uni-jena.de)
 ## Create dates: 2024-01-27 ----
 ## Licence: CC BY 4.0 ----
 
