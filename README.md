@@ -14,6 +14,4 @@ The fifth set of scripts deal with community level analysis;
 
 The sixth set of scripts deal with power analysis;
 
-The seventh set of scripts deal with analysis in the discusssion session;
-
-The eighth set of scripts deal with figures and tables.
+The seventh set of scripts deal with figures and tables.
