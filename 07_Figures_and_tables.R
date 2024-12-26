@@ -790,7 +790,7 @@ venn_sp_overlap <- function(sp_type){
     # save_pattern <- paste0("results/06_manuscript/", sp_type, "/Figure1a_region_venn.png")
     
     if(sp_type == "all_sp"){
-        save_pattern <- "results/06_manuscript/all_sp/Figure1a_all_sp_region_venn.png"}
+        save_pattern <- "results/06_manuscript/Figure1/Figure1a_all_sp_region_venn.png"}
     
     input_dir <- "results/01_species_cover"
     
